@@ -1,31 +1,47 @@
 # QuePokemono
 
-**QuePokemono** es una API desarrollada en Spring Boot que utiliza GraphQL para determinar qué Pokémon eres, basado en las respuestas a una encuesta de 5 preguntas.
+**QuePokemono** is an API developed with Spring Boot that uses GraphQL to determine which Pokémon you are, based on the answers to a 5-question survey.
 
-## Características
+## Features
 
-- **API REST**: Implementada con Spring Boot.
-- **GraphQL**: Para manejar consultas de datos.
-- **Hibernate & JPA**: Para manejar la persistencia de datos.
-- **Pruebas unitarias**: Con Spring Boot Test y Mockito.
+- **REST API**: Implemented with Spring Boot.
+- **GraphQL**: For handling data queries.
+- **Hibernate & JPA**: For data persistence management.
+- **Unit Testing**: With Spring Boot Test and Mockito.
+- **Java 11**: The project is developed using Java 11.
 
-## Funcionalidad
+## Functionality
 
-1. El usuario responde a 5 preguntas sobre características relacionadas con los Pokémon.
-2. La API analiza las respuestas y devuelve el Pokémon que más se asemeja a las características proporcionadas.
-3. Utiliza GraphQL para manejar las solicitudes y respuestas de la API.
+1. The user answers 5 questions related to Pokémon traits.
+2. The API analyzes the responses and returns the Pokémon that most closely matches the provided characteristics.
+3. Uses GraphQL to handle the API requests and responses.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-- **Java 17+**: Lenguaje de programación utilizado.
-- **Spring Boot**: Framework para la creación de la API.
-- **Spring Data JPA**: Para la gestión de datos con Hibernate.
-- **GraphQL**: Para la gestión de las consultas.
-- **Mockito**: Para pruebas unitarias.
-- **GitHub Actions**: Para integración continua.
+- **Java 11**: Programming language used.
+- **Spring Boot**: Framework for building the API.
+- **Spring Data JPA**: For data management with Hibernate.
+- **GraphQL**: For handling queries.
+- **Mockito**: For unit testing.
+- **GitHub Actions**: For continuous integration.
 
-## Cómo ejecutar
+## How to Run
 
-1. Clona este repositorio:
+1. Clone this repository:
    ```bash
-   git clone https://github.com/SrIrvin/QuePokemono.git
+   git clone https://github.com/SrIrvin/QuePokemono.git 
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd QuePokemono
+   ```
+
+3. Build the project with Maven:
+   ```bash
+   mvn clean install
+   ```
+3. Build the project with Maven:
+   ```bash
+   mvn spring-boot:run
+   ```
+
