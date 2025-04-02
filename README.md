@@ -18,7 +18,7 @@
 
 ## Technologies Used
 
-- **Java 11**: Programming language used.
+- **Java 17**: Programming language used.
 - **Spring Boot**: Framework for building the API.
 - **Spring Data JPA**: For data management with Hibernate.
 - **GraphQL**: For handling queries.
