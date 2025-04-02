@@ -4,7 +4,7 @@
 
 ## Features
 
-- **REST API**: Implemented with Spring Boot.
+- **REST API**: Implemented with Spring Boot 3.4.4.
 - **GraphQL**: For handling data queries.
 - **Hibernate & JPA**: For data persistence management.
 - **Unit Testing**: With Spring Boot Test and Mockito.

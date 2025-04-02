@@ -1,3 +1,9 @@
+type Pokemon {
+    id: ID!
+    name: String!
+    type: String!
+}
+
 type Query {
-  hello: String
+    pokemons: [Pokemon]!
 }
