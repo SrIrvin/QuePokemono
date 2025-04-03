@@ -94,7 +94,6 @@
             <version>5.14.2 </version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
