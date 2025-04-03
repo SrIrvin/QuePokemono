@@ -4,6 +4,15 @@ type Pokemon {
     type: String!
 }
 
+
 type Query {
-    pokemons: [Pokemon]!
+    obtenerPokemon(respuestas: EncuestaInput): String
+}
+
+input EncuestaInput {
+    respuesta1: String!
+    respuesta2: String!
+    respuesta3: String!
+    respuesta4: String!
+    respuesta5: String!
 }
