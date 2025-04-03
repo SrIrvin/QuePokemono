@@ -60,6 +60,41 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Dependencia para pruebas con JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version> 5.11.4 </version>
+            <scope>test</scope>
+        </dependency>
+        <!-- JUnit 5 dependency for testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.11.4</version> <!-- Usa la versión más reciente de JUnit 5 -->
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.11.4</version> <!-- Usa la versión más reciente de JUnit 5 -->
+            <scope>test</scope>
+        </dependency>
+        <!-- Dependencia para Mockito, útil para crear mocks en las pruebas -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version> 5.14.2  </version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Mockito for mocking dependencies -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>5.14.2 </version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

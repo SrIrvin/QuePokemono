@@ -1,5 +1,8 @@
 package com.example.quepokemono.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
@@ -10,13 +13,16 @@ import java.util.List;
  * </p>
  */
 public class Pokemon {
+    // Getters and setters
+    @Getter
+    @Setter
     private int id;
+    @Setter
+    @Getter
     private String name;
     private List<TypeSlot> types;
     private List<AbilitySlot> abilities;
     private List<StatSlot> stats;
-
-    // Getters and setters
 
     /**
      * Represents the type of a Pokémon in a specific slot.
