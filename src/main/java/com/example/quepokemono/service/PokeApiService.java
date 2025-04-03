@@ -2,8 +2,13 @@ package com.example.quepokemono.service;
 
 import com.example.quepokemono.model.Pokemon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
+
+import java.util.Optional;
 
 /**
  * Service class for interacting with the Pokémon API.
@@ -36,10 +41,23 @@ public class PokeApiService {
      * </p>
      *
      * @param name The name of the Pokémon to fetch.
-     * @return A {@link Pokemon} object containing the requested Pokémon's details.
+     * @return A {@link Pokemon} object containing the requested Pokémon's details, or {@code Optional.empty()} if not found.
      */
-    public Pokemon getPokemonByName(String name) {
+    public Optional<Pokemon> getPokemonByName(String name) {
         String url = baseUrl + name.toLowerCase();
-        return restTemplate.getForObject(url, Pokemon.class);
+        try {
+            // Intentar obtener el Pokémon
+            Pokemon pokemon = restTemplate.getForObject(url, Pokemon.class);
+            return Optional.ofNullable(pokemon);  // Retorna un Optional para manejar nulos
+        } catch (HttpClientErrorException.NotFound e) {
+            // Manejo específico para el caso en que el Pokémon no se encuentra
+            return Optional.empty();  // Retorna un Optional vacío si no se encuentra el Pokémon
+        } catch (HttpServerErrorException e) {
+            // Manejo de errores internos del servidor
+            throw new RuntimeException("Error en el servidor al obtener el Pokémon", e);
+        } catch (Exception e) {
+            // Cualquier otro error no esperado
+            throw new RuntimeException("Error desconocido al obtener el Pokémon", e);
+        }
     }
 }

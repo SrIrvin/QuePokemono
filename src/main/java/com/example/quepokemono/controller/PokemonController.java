@@ -3,7 +3,10 @@ package com.example.quepokemono.controller;
 import com.example.quepokemono.model.Pokemon;
 import com.example.quepokemono.service.PokeApiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 /**
  * REST Controller for handling Pokémon-related requests.
@@ -39,7 +42,12 @@ public class PokemonController {
      * @return A {@link Pokemon} object with the requested Pokémon's details.
      */
     @GetMapping("/{name}")
-    public Pokemon getPokemon(@PathVariable String name) {
-        return pokeApiService.getPokemonByName(name);
+    public ResponseEntity<Pokemon> getPokemon(@PathVariable String name) {
+        Optional<Pokemon> pokemon = pokeApiService.getPokemonByName(name);
+        if (pokemon.isPresent()) {
+            return ResponseEntity.ok(pokemon.get());  // Devuelve un 200 OK si el Pokémon se encuentra
+        } else {
+            return ResponseEntity.notFound().build();  // Devuelve un 404 Not Found si no se encuentra el Pokémon
+        }
     }
 }
