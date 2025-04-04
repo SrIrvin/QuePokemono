@@ -5,6 +5,9 @@ import com.example.quepokemono.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController  // Convierte la clase en un controlador REST
 @RequestMapping("api/v1/")  // Define el endpoint base
 public class SurveyController {
@@ -18,7 +21,7 @@ public class SurveyController {
 
     // 🔥 Permitir datos en el body, query params y headers
     @PostMapping("get-pokemon")
-    public String getPokemon(
+    public Map<String, String> getPokemon(
             @RequestBody(required = false) Survey survey, // Permite datos en el body
             @RequestParam(required = false) String answer1, // Permite query params
             @RequestParam(required = false) String answer2,
@@ -37,6 +40,9 @@ public class SurveyController {
             survey.setAnswer5(answer5);
         }
 
-        return surveyService.processSurvey(survey);
+        String pokemon = surveyService.processSurvey(survey);
+        Map<String, String> response = new HashMap<>();
+        response.put("pokemon", pokemon);
+        return response;
     }
 }
